@@ -6,7 +6,7 @@
 #    By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/25 16:42:02 by ssergiu           #+#    #+#              #
-#    Updated: 2022/10/13 19:07:31 by ssergiu          ###   ########.fr        #
+#    Updated: 2022/10/15 02:34:21 by ssergiu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ FILES = ft_strlen \
 		ft_lstnew \
 		ft_lstadd_front \
 		ft_lstadd_back \
-		ft_lstsize
+		ft_lstsize \
+		ft_lstlast
 
 OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))

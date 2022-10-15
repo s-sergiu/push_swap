@@ -4,6 +4,7 @@ FLAGS= -g -Wall -Werror -Wextra
 
 OBJ= obj/main.o \
 	 obj/input_parser.o \
+	 obj/instructions.o \
 
 LIBFT= obj/libft.o
 LIBFT_DIR= src/libft
