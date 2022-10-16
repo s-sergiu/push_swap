@@ -6,19 +6,99 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:32:30 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/15 02:50:52 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/16 02:38:19 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-void	print_stack(t_list *list)
+void	visualize(t_list **stack_a, t_list **stack_b)
+{
+	char	*line;
+	int		operations;
+
+	operations = 0;
+	while (1)
+	{
+		write(1, "\n", 1);
+		write(1, "Input operation: ", 17);
+		line = get_next_line(0);
+		if (!ft_strncmp(line, "rra", 3))
+		{
+			operations++;
+			rra(stack_a, 0);
+		}
+		else if (!ft_strncmp(line, "rrb", 3))
+		{
+			operations++;
+			rrb(stack_b, 0);
+		}
+		else if (!ft_strncmp(line, "rrr", 3))
+		{
+			operations++;
+			rrr(stack_a, stack_b);
+		}
+		else if (!ft_strncmp(line, "sa", 2))
+		{
+			operations++;
+			sa(stack_a, 0);
+		}
+		else if (!ft_strncmp(line, "sb", 2))
+		{
+			operations++;
+			sb(stack_b, 0);
+		}
+		else if (!ft_strncmp(line, "ss", 2))
+		{
+			operations++;
+			ss(stack_a, stack_b);
+		}
+		else if (!ft_strncmp(line, "pa", 2))
+		{
+			operations++;
+			pa(stack_a, stack_b);
+		}
+		else if (!ft_strncmp(line, "pb", 2))
+		{
+			operations++;
+			pb(stack_a, stack_b);
+		}
+		else if (!ft_strncmp(line, "ra", 2))
+		{
+			operations++;
+			ra(stack_a, 0);
+		}
+		else if (!ft_strncmp(line, "rb", 2))
+		{
+			operations++;
+			rb(stack_b, 0);
+		}
+		else if (!ft_strncmp(line, "rr", 2))
+		{
+			operations++;
+			rr(stack_a, stack_b);
+		}
+		else if (!ft_strncmp(line, "q", 1))
+			break ;
+		system("clear");
+		printf("OPERATION: %s\n", line);
+		printf("stack a: \n");
+		print_stack(*stack_a);
+		printf("stack b: \n");
+		print_stack(*stack_b);
+		printf("\nsize of stack A is: %d\n", ft_lstsize(*stack_a));
+		printf("size of stack B is: %d\n", ft_lstsize(*stack_b));
+		printf("TOTAL OPERATIONS: %d\n", operations);
+	}
+}
+
+void	print_stack(t_list *head)
 {
 	t_list	*temp;	
 
-	temp = list;
+	temp = head;
 	while (temp)
 	{
-		printf("contents: %s\n", temp->content);
+		printf("contents: %d\n", *(int *)(temp)->content);
 		temp = temp->next;
 	}
 }
@@ -30,27 +110,26 @@ int	main(int argc, char *argv[])
 
 	stack_a = create_stack(argv);
 	stack_b = NULL;
-	printf("Stack A: \n");
-	print_stack(stack_a);
-	if (!stack_a)
-		printf("NULL");
-	printf("size of stack A is: %d\n", ft_lstsize(stack_a));
-	printf("size of stack B is: %d\n", ft_lstsize(stack_b));
+	if (check_for_duplicates(stack_a))
+	{
+		printf("duplicate error\n");
+		return (0);
+	}
+	if (check_if_ordered(stack_a))
+	{
+		printf("order  error\n");
+		return (0);
+	}
 	printf("stack a: \n");
-	rra(&stack_a);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
-	rrb(&stack_b);
-	sb(&stack_b);
-	pa(&stack_a, &stack_b);
-	sb(&stack_b);
-	pa(&stack_a, &stack_b);
-	pa(&stack_a, &stack_b);
 	print_stack(stack_a);
 	printf("stack b: \n");
 	print_stack(stack_b);
-	printf("size of stack A is: %d\n", ft_lstsize(stack_a));
-	printf("size of stack B is: %d\n", ft_lstsize(stack_b));
+	if (!stack_a)
+		printf("NULL");
+	printf("\nsize of stack A is: %d\n", ft_lstsize(stack_a));
+	printf("size of stack B is: %d\n\n", ft_lstsize(stack_b));
+	visualize(&stack_a, &stack_b);
+	ft_lstclear(&stack_a, free);
+	ft_lstclear(&stack_b, free);
 	return (0);
 }

@@ -1,19 +1,22 @@
 NAME= push_swap
-CC= gcc
-FLAGS= -g -Wall -Werror -Wextra
+CC= cc
+FLAGS= -Wall -Werror -Wextra
 
 OBJ= obj/main.o \
 	 obj/input_parser.o \
 	 obj/instructions.o \
+	 obj/gnl.o \
 
 LIBFT= obj/libft.o
+GNL= obj/gnl.o
 LIBFT_DIR= src/libft
+GNL_DIR= src/gnl
 
 
 
 all: $(NAME)
 	
-$(NAME): $(LIBFT) $(OBJ)
+$(NAME): $(LIBFT) $(OBJ) $(GNL)
 	$(CC) $(FLAGS) $(OBJ) $(LIBFT) -o $@
 
 obj/%.o: src/%.c
@@ -24,11 +27,16 @@ $(LIBFT): src/libft/*.c
 	cp $(LIBFT_DIR)/libft.a ./obj/libft.o
 	make fclean -C $(LIBFT_DIR)
 
+$(GNL): $(GNL_DIR)/*c
+	@make -C $(GNL_DIR)
+	@cp $(GNL_DIR)/gnl.a ./obj/gnl.o
+	@make fclean -C $(GNL_DIR)
+
 clean:
 	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME) $(LIBFT)
+	$(RM) $(NAME) $(LIBFT) $(GNL)
 
 re: clean all
 
