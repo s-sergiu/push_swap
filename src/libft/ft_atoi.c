@@ -6,16 +6,16 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 16:08:54 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/04/10 14:27:48 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/17 04:08:16 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	x;
-	int	i;
-	int	sign;
+	long	x;
+	int		i;
+	long	sign;
 
 	x = 0;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:31 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/16 02:26:15 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/17 04:02:11 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,10 @@ void		rrr(t_list **stack_a, t_list **stack_b);
 void		visualize(t_list **stack_a, t_list **stack_b);
 int			check_for_duplicates(t_list *head);
 int			check_if_ordered(t_list *head);
+void		shellsort(t_list **stack_a, t_list **stack_b, int argc);
+void		sergiusort(t_list **stack_a, t_list **stack_b, int argc);
+void		create_stack_loop(char *split, t_list *head, t_list *new);
+void		format_printf(t_list *stack_a, t_list *stack_b);
+int			error_checking(t_list *head);
 
 #endif

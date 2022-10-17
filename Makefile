@@ -1,11 +1,12 @@
 NAME= push_swap
 CC= cc
-FLAGS= -Wall -Werror -Wextra
+FLAGS= -g -Wall -Werror -Wextra
 
 OBJ= obj/main.o \
 	 obj/input_parser.o \
 	 obj/instructions.o \
 	 obj/gnl.o \
+	 obj/sort.o \
 
 LIBFT= obj/libft.o
 GNL= obj/gnl.o

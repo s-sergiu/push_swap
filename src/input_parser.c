@@ -6,12 +6,12 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:33:34 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/16 02:33:07 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/17 04:07:58 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-void free_split(char **str)
+void	free_split(char **str)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ t_list	*create_stack(char **argv)
 	t_list	*head;
 	t_list	*new;
 	char	**split;
-	int		*content;
+	long	*content;
 
 	head = NULL;
 	i = 0;
@@ -53,30 +53,34 @@ t_list	*create_stack(char **argv)
 		{
 			if (!xcheck_input(split[j]))
 				return (NULL);
-			content = (int *)malloc(sizeof(int) * 1);
+			content = (long *)malloc(sizeof(long) * 1);
+			if (!content)
+				return (NULL);
 			*content = ft_atoi(split[j]);
+			if (*content < -2147483648 || *content > 2147483647)
+				return (NULL);
 			new = ft_lstnew(content);
 			ft_lstadd_back(&head, new);
 		}
-	free_split(split);
+		free_split(split);
 	}
 	return (head);
 }
 
 int	check_for_duplicates(t_list *head)
 {
-	t_list *outer;
-	t_list *inner;
+	t_list	*outer;
+	t_list	*inner;
 
 	outer = head;
-	while(outer)
+	while (outer)
 	{
 		inner = outer->next;
-		while(inner)
+		while (inner)
 		{
 			if (*(int *)(outer)->content == *(int *)(inner)->content)
 				return (1);
-			inner = inner->next;	
+			inner = inner->next;
 		}
 		outer = outer->next;
 	}
@@ -85,7 +89,7 @@ int	check_for_duplicates(t_list *head)
 
 int	check_if_ordered(t_list *head)
 {
-	t_list *curr;
+	t_list	*curr;
 
 	curr = head;
 	while (curr->next)
@@ -95,4 +99,24 @@ int	check_if_ordered(t_list *head)
 		curr = curr->next;
 	}
 	return (1);
+}
+
+int	error_checking(t_list *head)
+{
+	if (!head)
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	if (check_for_duplicates(head))
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	if (check_if_ordered(head))
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	return (0);
 }

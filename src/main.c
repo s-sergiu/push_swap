@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:32:30 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/16 02:38:19 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/17 03:54:11 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -103,23 +103,8 @@ void	print_stack(t_list *head)
 	}
 }
 
-int	main(int argc, char *argv[])
+void	format_printf(t_list *stack_a, t_list *stack_b)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-
-	stack_a = create_stack(argv);
-	stack_b = NULL;
-	if (check_for_duplicates(stack_a))
-	{
-		printf("duplicate error\n");
-		return (0);
-	}
-	if (check_if_ordered(stack_a))
-	{
-		printf("order  error\n");
-		return (0);
-	}
 	printf("stack a: \n");
 	print_stack(stack_a);
 	printf("stack b: \n");
@@ -128,7 +113,20 @@ int	main(int argc, char *argv[])
 		printf("NULL");
 	printf("\nsize of stack A is: %d\n", ft_lstsize(stack_a));
 	printf("size of stack B is: %d\n\n", ft_lstsize(stack_b));
-	visualize(&stack_a, &stack_b);
+}
+
+int	main(int argc, char *argv[])
+{
+	t_list	*stack_a;
+	t_list	*stack_b;
+
+	stack_a = create_stack(argv);
+	stack_b = NULL;
+	if (error_checking(stack_a))
+		return (0);
+//	visualize(&stack_a, &stack_b);
+//	shellsort(&stack_a, &stack_b, argc - 1);
+	format_printf(stack_a, stack_b);
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);
 	return (0);
