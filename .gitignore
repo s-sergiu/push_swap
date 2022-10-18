@@ -1,3 +1,4 @@
 *.swp
 obj/
 push_swap
+src/tester.c

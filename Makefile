@@ -8,6 +8,7 @@ OBJ= obj/main.o \
 	 obj/instruction_set_a.o \
 	 obj/instruction_set_b.o \
 	 obj/instruction_set_c.o \
+	 obj/tester.o \
 	 obj/gnl.o \
 	 obj/sort.o \
 
