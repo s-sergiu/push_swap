@@ -24,7 +24,7 @@ $(NAME): $(LIBFT) $(OBJ) $(GNL)
 	$(CC) $(FLAGS) $(OBJ) $(LIBFT) -o $@
 
 obj/%.o: src/%.c
-	$(CC) -c -o $@ $^
+	$(CC) $(FLAGS) -c -o $@ $^
 
 $(LIBFT): src/libft/*.c
 	make -C $(LIBFT_DIR)

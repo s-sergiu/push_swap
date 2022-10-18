@@ -6,52 +6,64 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:46:39 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/18 15:58:58 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/18 22:56:49 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-void	free_split(char **str)
+void	free_split(char **split)
 {
 	int	i;
 
 	i = -1;
-	while (str[++i] != 0)
-		free(str[i]);
-	free(str);
+	while (split[++i] != 0)
+		free(split[i]);
+	free(split);
 }
 
-int	create_stack_loop(t_create_stack *new)
+int	create_stack_loop(t_list **head, char **split)
 {
-	while (new->split[++new->j] != 0)
+	int		j;
+	long	*content;
+
+	j = -1;
+	while (split[++j] != 0)
 	{
-		if (!xcheck_input(new->split[new->j]))
+		if (!check_non_numeric(split[j]))
 			return (0);
-		new->content = (long *)malloc(sizeof(long) * 1);
-		if (!new->content)
+		content = (long *)malloc(sizeof(long) * 1);
+		if (!content)
 			return (0);
-		*new->content = ft_atoi(new->split[new->j]);
-		if (*new->content < -2147483648 || *new->content > 2147483647)
+		*content = ft_atoi(split[j]);
+		if (*content < -2147483648 || *content > 2147483647)
+		{
+			free(content);
 			return (0);
-		new->new = ft_lstnew(new->content);
-		ft_lstadd_back(&new->head, new->new);
+		}
+		ft_lstadd_back(head, ft_lstnew(content));
 	}
-	free_split(new->split);
 	return (1);
 }
 
 t_list	*create_stack(char **argv)
 {
-	t_create_stack	*new;
+	int		i;
+	t_list	*head;
+	char	**split;
 
-	new->head = NULL;
-	new->i = 0;
-	while (argv[++new->i] != 0)
+	head = NULL;
+	i = 0;
+	while (argv[++i] != 0)
 	{
-		new->split = ft_split(argv[new->i], ' ');
-		new->j = -1;
-		if (!create_stack_loop(new))
+		split = ft_split(argv[i], ' ');
+		if (!create_stack_loop(&head, split))
+		{
+			if (head)
+				ft_lstclear(&head, free);
+			free_split(split);
 			return (NULL);
+		}
+		free_split(split);
 	}
-	return (new->head);
+	return (head);
 }

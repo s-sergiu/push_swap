@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_parser.c                                     :+:      :+:    :+:   */
+/*   checkers.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:33:34 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/18 15:55:34 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/18 22:56:49 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-int	xcheck_input(char *argv)
+int	check_non_numeric(char *argv)
 {
 	int	i;
 
@@ -58,22 +58,21 @@ int	check_if_ordered(t_list *head)
 	return (1);
 }
 
-int	error_checking(t_list *head)
+int	check_invalid_stack(t_list *head)
 {
 	if (!head)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
+	if (ft_lstsize(head) < 2)
+		return (1);
 	if (check_for_duplicates(head))
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 	if (check_if_ordered(head))
-	{
-		write(2, "Error\n", 6);
 		return (1);
-	}
 	return (0);
 }

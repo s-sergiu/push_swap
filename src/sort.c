@@ -6,12 +6,12 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:18:08 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/17 04:09:35 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/18 16:38:04 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-void	shellsort(t_list **stack_a, t_list **stack_b, int argc)
+void	shellsort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*cursor;
 
@@ -46,11 +46,4 @@ void	shellsort(t_list **stack_a, t_list **stack_b, int argc)
 			cursor = *stack_b;
 		}
 	}
-}
-
-void	sergiusort(t_list **stack_a, t_list **stack_b, int argc)
-{
-	int	*first;
-	int	*second;
-	int	*last;
 }

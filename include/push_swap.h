@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:31 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/18 16:00:23 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/18 22:57:05 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,6 @@
 # include <curses.h>
 # include "../src/libft/libft.h"
 
-typedef struct create_stack
-{
-	int		i;
-	int		j;
-	t_list	*head;
-	t_list	*new;
-	char	**split;
-	long	*content;
-}			t_create_stack;
-
 void		sa(t_list **head, int flag);
 void		sb(t_list **head, int flag);
 void		ss(t_list **stack_a, t_list **stack_b);
@@ -40,17 +30,15 @@ void		rr(t_list **stack_a, t_list **stack_b);
 void		rra(t_list **head, int flag);
 void		rrb(t_list **head, int flag);
 void		rrr(t_list **stack_a, t_list **stack_b);
-int			xcheck_input(char *argv);
+int			check_non_numeric(char *argv);
 char		*get_next_line(int fd);
 t_list		*create_stack(char **argv);
 void		print_stack(t_list *list);
 void		visualize(t_list **stack_a, t_list **stack_b);
 int			check_for_duplicates(t_list *head);
 int			check_if_ordered(t_list *head);
-void		shellsort(t_list **stack_a, t_list **stack_b, int argc);
-void		sergiusort(t_list **stack_a, t_list **stack_b, int argc);
+void		shellsort(t_list **stack_a, t_list **stack_b);
 void		format_printf(t_list *stack_a, t_list *stack_b);
-int			error_checking(t_list *head);
-int			create_stack_loop(t_create_stack *new);
+int			check_invalid_stack(t_list *head);
 
 #endif
