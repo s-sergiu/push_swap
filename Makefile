@@ -3,8 +3,11 @@ CC= cc
 FLAGS= -g -Wall -Werror -Wextra
 
 OBJ= obj/main.o \
-	 obj/input_parser.o \
-	 obj/instructions.o \
+	 obj/checkers.o \
+	 obj/create_stack.o \
+	 obj/instruction_set_a.o \
+	 obj/instruction_set_b.o \
+	 obj/instruction_set_c.o \
 	 obj/gnl.o \
 	 obj/sort.o \
 
