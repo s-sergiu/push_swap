@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:18:08 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 01:51:13 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/19 22:29:01 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -21,13 +21,13 @@ void	shellsort(t_list **stack_a, t_list **stack_b)
 		while (cursor)
 		{
 			if (ft_lstsize(cursor) == 1)
-				pb(stack_a, stack_b);
+				pb(stack_a, stack_b, 0);
 			if (*(int *)(cursor)->content < *(int *)(cursor)->next->content)
-				pb(stack_a, stack_b);
+				pb(stack_a, stack_b, 0);
 			else
 			{
 				sa(stack_a, 0);
-				pb(stack_a, stack_b);
+				pb(stack_a, stack_b, 0);
 			}
 			cursor = *stack_a;
 		}
@@ -35,13 +35,13 @@ void	shellsort(t_list **stack_a, t_list **stack_b)
 		while (cursor)
 		{
 			if (ft_lstsize(cursor) == 1)
-				pa(stack_a, stack_b);
+				pa(stack_a, stack_b, 0);
 			if (*(int *)(cursor)->content > *(int *)(cursor)->next->content)
-				pa(stack_a, stack_b);
+				pa(stack_a, stack_b, 0);
 			else
 			{
 				sb(stack_b, 0);
-				pa(stack_a, stack_b);
+				pa(stack_a, stack_b, 0);
 			}
 			cursor = *stack_b;
 		}

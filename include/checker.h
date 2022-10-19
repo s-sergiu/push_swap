@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:31 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 22:43:49 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/19 22:44:13 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -29,10 +29,10 @@ void		rra(t_list **head, int flag);
 void		rrb(t_list **head, int flag);
 void		rrr(t_list **stack_a, t_list **stack_b, int flag);
 int			has_non_numeric_vals(char *argv);
+char		*get_next_line(int fd);
 t_list		*create_stack(char **argv);
 int			has_duplicate_numbers(t_list *head);
 int			is_sorted(t_list *head);
-void		shellsort(t_list **stack_a, t_list **stack_b);
 int			stack_is_invalid(t_list *head);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 23:10:48 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/18 23:10:52 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/19 22:08:14 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -39,9 +39,10 @@ void	sb(t_list **head, int flag)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b, int flag)
 {
 	sa(stack_a, 1);
 	sb(stack_b, 1);
-	write(1, "ss\n", 3);
+	if (!flag)
+		write(1, "ss\n", 3);
 }

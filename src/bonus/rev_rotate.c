@@ -1,48 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 23:11:42 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 22:07:44 by ssergiu          ###   ########.fr       */
+/*   Created: 2022/10/18 23:12:01 by ssergiu           #+#    #+#             */
+/*   Updated: 2022/10/19 23:05:26 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/push_swap.h"
+#include "../../include/checker.h"
 
-void	ra(t_list **head, int flag)
+void	rra(t_list **head, int flag)
 {
 	t_list	*temp;
+	t_list	*temp2;
 
 	if (ft_lstsize(*head) < 2)
 		return ;
 	temp = *head;
-	*head = (*head)->next;
+	while (temp->next->next)
+		temp = temp->next;
+	temp2 = temp->next;
+	ft_lstadd_front(head, temp2);
 	temp->next = NULL;
-	ft_lstadd_back(head, temp);
 	if (!flag)
-		write(1, "ra\n", 3);
+		write(1, "rra\n", 4);
 }
 
-void	rb(t_list **head, int flag)
+void	rrb(t_list **head, int flag)
 {
 	t_list	*temp;
+	t_list	*temp2;
 
 	if (ft_lstsize(*head) < 2)
 		return ;
 	temp = *head;
-	*head = temp->next;
+	while (temp->next->next)
+		temp = temp->next;
+	temp2 = temp->next;
+	ft_lstadd_front(head, temp2);
 	temp->next = NULL;
-	ft_lstadd_back(head, temp);
 	if (!flag)
-		write(1, "rb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
-void	rr(t_list **stack_a, t_list **stack_b, int flag)
+void	rrr(t_list **stack_a, t_list **stack_b, int flag)
 {
-	rb(stack_b, 1);
-	ra(stack_a, 1);
+	rra(stack_a, 1);
+	rrb(stack_b, 1);
 	if (!flag)
-		write(1, "rr\n", 3);
+		write(1, "rrr\n", 4);
 }

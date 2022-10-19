@@ -6,10 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 23:11:42 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 22:07:44 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/19 23:05:22 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/push_swap.h"
+#include "../../include/checker.h"
 
 void	ra(t_list **head, int flag)
 {

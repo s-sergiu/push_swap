@@ -13,48 +13,51 @@ OBJ= obj/main.o \
 	 obj/create_stack.o \
 	 obj/sort.o 
 
-BONUS_OBJ= obj/checker.o \
-		   obj/push.o \
-		   obj/swap.o \
-		   obj/rotate.o \
-		   obj/rev_rotate.o \
-		   obj/input_checks.o \
-		   obj/create_stack.o \
-		   obj/sort.o \
-		   obj/gnl.o
+BONUS_OBJ= obj/bonus/checker.o \
+		   obj/bonus/push.o \
+		   obj/bonus/swap.o \
+		   obj/bonus/rotate.o \
+		   obj/bonus/rev_rotate.o \
+		   obj/bonus/input_checks.o \
+		   obj/bonus/create_stack.o \
 
-LIBFT= obj/libft.o
-GNL= obj/gnl.o
+LIBFT= obj/libft/libft.o
+GNL= obj/gnl/gnl.o
+BONUS_FILE=checker
 
 LIBFT_DIR= src/libft
 GNL_DIR= src/gnl
+NAME_H= include/push_swap.h
+BONUS_H= include/checker.h
 
 all: $(NAME)
 	
-$(BONUS): $(LIBFT) $(BONUS_OBJ)
-	$(CC) $(FLAGS) $(BONUS_OBJ) $(LIBFT) -o checker
+$(BONUS): $(BONUS_FILE)
 
-$(NAME): $(LIBFT) $(OBJ) 
+$(BONUS_FILE): $(LIBFT) $(BONUS_OBJ) $(BONUS_H) $(GNL)
+	$(CC) $(FLAGS) $(BONUS_OBJ) $(LIBFT) $(GNL) -o checker
+
+$(NAME): $(LIBFT) $(OBJ) $(NAME_H)
 	$(CC) $(FLAGS) $(OBJ) $(LIBFT) -o $@
 
 obj/%.o: src/%.c
 	$(CC) $(FLAGS) -c -o $@ $^
 
-$(GNL): src/libft/*.c
+$(GNL): $(GNL_DIR)/*.c
 	make -C $(GNL_DIR)
-	cp $(GNL_DIR)/gnl.a ./obj/gnl.o
+	cp $(GNL_DIR)/gnl.a $(GNL)
 	make fclean -C $(GNL_DIR)
 
-$(LIBFT): src/libft/*.c
+$(LIBFT): $(LIBFT_DIR)/*.c
 	make -C $(LIBFT_DIR)
-	cp $(LIBFT_DIR)/libft.a ./obj/libft.o
+	cp $(LIBFT_DIR)/libft.a $(LIBFT)
 	make fclean -C $(LIBFT_DIR)
 
 clean:
-	$(RM) $(OBJ) $(BONUS_OBJ)
+	$(RM) $(OBJ) $(BONUS_OBJ) $(LIBFT) $(GNL)
 
 fclean: clean
-	$(RM) $(NAME) $(LIBFT)
+	$(RM) $(NAME) $(BONUS_FILE)
 
 re: clean all
 

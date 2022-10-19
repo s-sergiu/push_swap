@@ -6,10 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:33:34 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 22:57:49 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/19 23:05:53 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/push_swap.h"
+#include "../../include/checker.h"
 
 int	has_non_numeric_vals(char *argv)
 {
@@ -72,7 +72,5 @@ int	stack_is_invalid(t_list *head)
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	if (is_sorted(head))
-		return (1);
 	return (0);
 }
