@@ -1,53 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_b.c                                   :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 15:43:46 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/18 15:45:47 by ssergiu          ###   ########.fr       */
+/*   Created: 2022/10/18 23:11:42 by ssergiu           #+#    #+#             */
+/*   Updated: 2022/10/18 23:11:45 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-void	rra(t_list **head, int flag)
+void	ra(t_list **head, int flag)
 {
 	t_list	*temp;
-	t_list	*temp2;
 
 	if (ft_lstsize(*head) < 2)
 		return ;
 	temp = *head;
-	while (temp->next->next)
-		temp = temp->next;
-	temp2 = temp->next;
-	ft_lstadd_front(head, temp2);
+	*head = (*head)->next;
 	temp->next = NULL;
+	ft_lstadd_back(head, temp);
 	if (!flag)
-		write(1, "rra\n", 4);
+		write(1, "ra\n", 3);
 }
 
-void	rrb(t_list **head, int flag)
+void	rb(t_list **head, int flag)
 {
 	t_list	*temp;
-	t_list	*temp2;
 
 	if (ft_lstsize(*head) < 2)
 		return ;
 	temp = *head;
-	while (temp->next->next)
-		temp = temp->next;
-	temp2 = temp->next;
-	ft_lstadd_front(head, temp2);
+	*head = temp->next;
 	temp->next = NULL;
+	ft_lstadd_back(head, temp);
 	if (!flag)
-		write(1, "rrb\n", 4);
+		write(1, "rb\n", 3);
 }
 
-void	rrr(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-	rra(stack_a, 1);
-	rrb(stack_b, 1);
-	write(1, "rrr\n", 4);
+	rb(stack_b, 1);
+	ra(stack_a, 1);
+	write(1, "rr\n", 3);
 }

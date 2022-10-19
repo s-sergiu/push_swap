@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:46:39 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/18 22:56:49 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/19 02:46:09 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -29,7 +29,7 @@ int	create_stack_loop(t_list **head, char **split)
 	j = -1;
 	while (split[++j] != 0)
 	{
-		if (!check_non_numeric(split[j]))
+		if (!has_non_numeric_vals(split[j]))
 			return (0);
 		content = (long *)malloc(sizeof(long) * 1);
 		if (!content)

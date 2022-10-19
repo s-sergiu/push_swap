@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:31 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/18 22:57:05 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/19 04:10:57 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,12 @@ void		rr(t_list **stack_a, t_list **stack_b);
 void		rra(t_list **head, int flag);
 void		rrb(t_list **head, int flag);
 void		rrr(t_list **stack_a, t_list **stack_b);
-int			check_non_numeric(char *argv);
+int			has_non_numeric_vals(char *argv);
 char		*get_next_line(int fd);
 t_list		*create_stack(char **argv);
-void		print_stack(t_list *list);
-void		visualize(t_list **stack_a, t_list **stack_b);
-int			check_for_duplicates(t_list *head);
-int			check_if_ordered(t_list *head);
+int			has_duplicate_numbers(t_list *head);
+int			is_sorted(t_list *head);
 void		shellsort(t_list **stack_a, t_list **stack_b);
-void		format_printf(t_list *stack_a, t_list *stack_b);
-int			check_invalid_stack(t_list *head);
+int			stack_is_invalid(t_list *head);
 
 #endif

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkers.c                                         :+:      :+:    :+:   */
+/*   input_checks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:33:34 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/18 22:56:49 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/19 02:46:09 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-int	check_non_numeric(char *argv)
+int	has_non_numeric_vals(char *argv)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	check_non_numeric(char *argv)
 	return (1);
 }
 
-int	check_for_duplicates(t_list *head)
+int	has_duplicate_numbers(t_list *head)
 {
 	t_list	*outer;
 	t_list	*inner;
@@ -44,7 +44,7 @@ int	check_for_duplicates(t_list *head)
 	return (0);
 }
 
-int	check_if_ordered(t_list *head)
+int	is_sorted(t_list *head)
 {
 	t_list	*curr;
 
@@ -58,7 +58,7 @@ int	check_if_ordered(t_list *head)
 	return (1);
 }
 
-int	check_invalid_stack(t_list *head)
+int	stack_is_invalid(t_list *head)
 {
 	if (!head)
 	{
@@ -67,12 +67,12 @@ int	check_invalid_stack(t_list *head)
 	}
 	if (ft_lstsize(head) < 2)
 		return (1);
-	if (check_for_duplicates(head))
+	if (has_duplicate_numbers(head))
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
-	if (check_if_ordered(head))
+	if (is_sorted(head))
 		return (1);
 	return (0);
 }

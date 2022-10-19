@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:18:08 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/18 16:38:04 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/19 01:51:13 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -15,7 +15,7 @@ void	shellsort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*cursor;
 
-	while (!check_if_ordered(*stack_a))
+	while (!is_sorted(*stack_a))
 	{
 		cursor = *stack_a;
 		while (cursor)
@@ -46,4 +46,29 @@ void	shellsort(t_list **stack_a, t_list **stack_b)
 			cursor = *stack_b;
 		}
 	}
+}
+
+void	sort_three(t_list **stack_a)
+{
+	int	first_element;
+	int	second_element;
+
+	first_element = *(int *)(*(stack_a))->content;
+	second_element = *(int *)(*(stack_a))->next->content;
+	if ((first_element == 3 && second_element == 1)
+		|| (first_element == 3 && second_element == 2))
+	{
+		ra(stack_a, 0);
+		if (!is_sorted(*stack_a))
+			sa(stack_a, 0);
+	}
+	else if ((first_element == 2 && second_element == 3)
+		|| (first_element == 1 && second_element == 3))
+	{
+		rra(stack_a, 0);
+		if (!is_sorted(*stack_a))
+			sa(stack_a, 0);
+	}
+	else
+		sa(stack_a, 0);
 }
