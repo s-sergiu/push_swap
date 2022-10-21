@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:46:39 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 02:46:09 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/20 01:48:18 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -56,6 +56,11 @@ t_list	*create_stack(char **argv)
 	while (argv[++i] != 0)
 	{
 		split = ft_split(argv[i], ' ');
+		if (split[0] == 0)
+		{
+			free_split(split);
+			return (NULL);
+		}
 		if (!create_stack_loop(&head, split))
 		{
 			if (head)

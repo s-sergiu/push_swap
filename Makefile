@@ -2,7 +2,7 @@ NAME= push_swap
 BONUS = bonus
 
 CC= cc
-FLAGS= -Wall -Werror -Wextra
+FLAGS= -g -Wall -Werror -Wextra
 
 OBJ= obj/main.o \
 	 obj/push.o \
@@ -11,7 +11,7 @@ OBJ= obj/main.o \
 	 obj/rev_rotate.o \
 	 obj/input_checks.o \
 	 obj/create_stack.o \
-	 obj/sort.o 
+	 obj/sorting_algorithm.o 
 
 BONUS_OBJ= obj/bonus/checker.o \
 		   obj/bonus/push.o \
