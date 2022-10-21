@@ -11,7 +11,8 @@ OBJ= obj/main.o \
 	 obj/rev_rotate.o \
 	 obj/input_checks.o \
 	 obj/create_stack.o \
-	 obj/sorting_algorithm.o 
+	 obj/sorting_algorithm.o \
+	 obj/sorting_utils.o
 
 BONUS_OBJ= obj/bonus/checker.o \
 		   obj/bonus/push.o \
@@ -19,7 +20,7 @@ BONUS_OBJ= obj/bonus/checker.o \
 		   obj/bonus/rotate.o \
 		   obj/bonus/rev_rotate.o \
 		   obj/bonus/input_checks.o \
-		   obj/bonus/create_stack.o \
+		   obj/bonus/create_stack.o 
 
 LIBFT= obj/libft/libft.o
 GNL= obj/gnl/gnl.o
