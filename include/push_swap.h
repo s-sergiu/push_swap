@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:31 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/21 05:04:00 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/21 07:23:09 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ void		rrr(t_list **stack_a, t_list **stack_b, int flag);
 void		sort_three(t_list **head);
 void		index_list(t_list *head);
 void		sergiusort(t_list **stack_a, t_list **stack_b);
+void		sorted_index_list(t_list *head);
 t_list		*create_stack(char **argv);
+t_list		*get_list_index(t_list *head, int number);
 int			has_non_numeric_vals(char *argv);
 int			get_lowest_number(t_list *head);
 int			has_duplicate_numbers(t_list *head);

@@ -6,39 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:18:08 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/21 06:33:05 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/21 07:57:12 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
-
-void	sergiusort(t_list **stack_a, t_list **stack_b)
-{
-	int	index;
-	int	proximity;
-	int	size;
-
-	while (ft_lstsize(*stack_a) > 3)
-	{
-		index_list(*stack_a);
-		size = ft_lstsize(*stack_a);
-		index = get_lowest_number(*stack_a);
-		proximity = size / 2;
-		if (index == 1)
-			pb(stack_a, stack_b, 0);
-		if (proximity > index)
-			ra(stack_a, 0);
-		else
-			rra(stack_a, 0);
-	}
-	sort_three(stack_a);
-	while (ft_lstsize(*stack_b) > 3)
-		pa(stack_a, stack_b, 0);
-	sort_three(stack_b);
-	pa(stack_a, stack_b, 0);
-	pa(stack_a, stack_b, 0);
-	pa(stack_a, stack_b, 0);
-	
-}
 
 /*
  * Hardcoded sorting list of size(3);
@@ -96,4 +67,31 @@ void	reverse_sort_three(t_list **head)
 	}
 	else
 		rb(head, 0);
+}
+
+void	sergiusort(t_list **stack_a, t_list **stack_b)
+{
+	int	index;
+	int	proximity;
+	int	size;
+
+	while (ft_lstsize(*stack_a) > 3)
+	{
+		index_list(*stack_a);
+		size = ft_lstsize(*stack_a);
+		index = get_lowest_number(*stack_a);
+		proximity = size / 2;
+		if (index == 1)
+			pb(stack_a, stack_b, 0);
+		if (proximity > index)
+			ra(stack_a, 0);
+		else
+			rra(stack_a, 0);
+	}
+	sort_three(stack_a);
+	while (ft_lstsize(*stack_b) > 3)
+		pa(stack_a, stack_b, 0);
+	pa(stack_a, stack_b, 0);
+	pa(stack_a, stack_b, 0);
+	pa(stack_a, stack_b, 0);
 }

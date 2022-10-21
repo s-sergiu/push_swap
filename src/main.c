@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:32:30 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/21 05:44:31 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/21 07:08:15 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -28,6 +28,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	size = ft_lstsize(stack_a);
+	sorted_index_list(stack_a);
 	if (size == 3)
 		sort_three(&stack_a);
 	else if (size == 2)
