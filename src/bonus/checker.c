@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 23:02:46 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 23:05:41 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/21 06:07:19 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/checker.h"
@@ -56,6 +56,7 @@ void	check_instructions(t_list **stack_a, t_list **stack_b)
 		free(line);
 		line = get_next_line(0);
 	}
+	free(line);
 }
 
 int	main(int argc, char *argv[])
