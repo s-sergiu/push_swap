@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 03:02:57 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/21 04:58:18 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/21 06:55:47 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -39,4 +39,38 @@ void	index_list(t_list *head)
 		cursor->index = i++;
 		cursor = cursor->next;
 	}
+}
+
+t_list	*find_lowest_val(t_list *head)
+{
+	t_list	*cursor;
+	t_list	*min;
+
+	cursor = head;
+	while (head)
+	{
+		if (head->index < 1)
+			min = head;
+		head = head->next;
+	}
+	while (cursor)
+	{
+		if (cursor->index < 1)
+			if (*(int *)(min)->content > *(int *)(cursor)->content)
+				min = cursor;
+		cursor = cursor->next;
+	}
+	return (min);
+}
+
+void	index_list(t_list *head)
+{
+	int		i;
+	int		size;
+
+	i = 1;
+	size = ft_lstsize(head) + 1;
+	while (i < size)
+		(find_lowest_val(head))->index = i++;
+
 }
