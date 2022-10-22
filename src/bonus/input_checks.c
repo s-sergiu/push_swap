@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:33:34 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 23:05:53 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/21 11:43:56 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../../include/checker.h"
@@ -16,6 +16,8 @@ int	has_non_numeric_vals(char *argv)
 	int	i;
 
 	i = -1;
+	if (argv[0] == '-' && argv[1] == 0)
+		return (0);
 	if (argv[0] == '-')
 		i++;
 	while (argv[++i] != 0)
@@ -72,5 +74,7 @@ int	stack_is_invalid(t_list *head)
 		write(2, "Error\n", 6);
 		return (1);
 	}
+	if (is_sorted(head))
+		return (1);
 	return (0);
 }
