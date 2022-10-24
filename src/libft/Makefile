@@ -6,7 +6,7 @@
 #    By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/25 16:42:02 by ssergiu           #+#    #+#              #
-#    Updated: 2022/10/15 23:56:17 by ssergiu          ###   ########.fr        #
+#    Updated: 2022/10/23 23:29:48 by ssergiu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ FILES = ft_strlen \
 		ft_lstadd_back \
 		ft_lstsize \
 		ft_lstlast \
+		ft_lstdelone \
 		ft_lstclear
 
 OBJS_DIR = ./

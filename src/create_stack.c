@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:46:39 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/21 12:16:22 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/24 04:25:42 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -73,4 +73,20 @@ t_list	*create_stack(char **argv)
 		free_split(split);
 	}
 	return (head);
+}
+
+t_list *create_first_quarter(t_list **head, int quart, int initial_size)
+{
+	int	i;
+	t_list *quarter;
+	t_list *cursor;
+
+	quarter = NULL;
+	i = quart - (initial_size - 1);
+	while(i <= quart) 
+	{
+		cursor = get_list_index(*head, i++);
+		ft_lstadd_back(&quarter, ft_lstnew(cursor->content));
+	}
+	return (quarter);
 }

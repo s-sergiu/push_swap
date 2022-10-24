@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:33:34 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/21 11:42:35 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/24 07:16:42 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -44,6 +44,20 @@ int	has_duplicate_numbers(t_list *head)
 		outer = outer->next;
 	}
 	return (0);
+}
+
+int	is_sorted_reverse(t_list *head)
+{
+	t_list	*curr;
+
+	curr = head;
+	while (curr->next)
+	{
+		if (!(*(int *)(curr)->content > *(int *)(curr)->next->content))
+			return (0);
+		curr = curr->next;
+	}
+	return (1);
 }
 
 int	is_sorted(t_list *head)

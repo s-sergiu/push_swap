@@ -6,10 +6,26 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:32:30 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/22 12:30:35 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/24 10:13:16 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
+
+void	print_list(t_list **head)
+{
+	t_list *cursor;
+	int	i;
+
+	cursor = *head;
+	i = 0;
+	while (cursor)
+	{
+		printf("cursor at %d is %d with index %d and sorted index %d.\n", 
+			i, *(int *)(cursor)->content, cursor->index, cursor->sorted_index);
+		i++;
+		cursor = cursor->next;
+	}
+}
 
 int	main(int argc, char *argv[])
 {
@@ -30,12 +46,16 @@ int	main(int argc, char *argv[])
 	size = ft_lstsize(stack_a);
 	sorted_index_list(stack_a);
 	if (size == 3)
+	{
 		while (!is_sorted(stack_a))
 			sort_three(&stack_a);
+	}
 	else if (size == 2)
 		sa(&stack_a, 0);
-	else
+	else if (size < 13)
 		sort(&stack_a, &stack_b);
+	else if (size > 12)
+		bigsort(&stack_a, &stack_b);
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);
 	return (0);
