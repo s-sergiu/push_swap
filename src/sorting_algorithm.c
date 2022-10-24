@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:18:08 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/24 10:10:57 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/24 14:19:06 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -49,20 +49,17 @@ void	sort_three(t_list **head)
 	third_element = *(int *)(*(head))->next->next->content;
 	if ((first_element > second_element) && (first_element > third_element))
 	{
-		if (second_element < third_element)
-			ra(head, 0);
+		ra(head, 0);
 		if (!is_sorted(*head))
 			sa(head, 0);
 	}
-	else if ((first_element < second_element)
-		&& (first_element < second_element))
+	else if (first_element < second_element)
 	{
-		if (second_element > third_element)
-			rra(head, 0);
+		rra(head, 0);
 		if (!is_sorted(*head))
 			sa(head, 0);
 	}
-	else
+	if (!is_sorted(*head))
 		sa(head, 0);
 }
 
@@ -72,30 +69,31 @@ void	sort(t_list **stack_a, t_list **stack_b)
 	int	proximity;
 	int	size;
 
-	while (ft_lstsize(*stack_a) > 3 && !is_sorted(*stack_a))
+	while (ft_lstsize(*stack_a) > 3)
 	{
 		index_list(*stack_a);
 		size = ft_lstsize(*stack_a);
 		index = get_lowest_number(*stack_a);
 		proximity = size / 2;
-		while (index == 1)
+		if (index == 1)
 		{
 			pb(stack_a, stack_b, 0);
 			index_list(*stack_a);
 			index = get_lowest_number(*stack_a);
+			size = ft_lstsize(*stack_a);
 			proximity = size / 2;
 		}
+		if (size == 3)
+			break ;
 		if (proximity >= index)
 			ra(stack_a, 0);
 		else
 			rra(stack_a, 0);
 	}
-	sort_three(stack_a);
-	while (ft_lstsize(*stack_b) > 3 && !is_sorted(*stack_b))
+	if (!is_sorted(*stack_a))
+		sort_three(stack_a);
+	while (*stack_b)
 		pa(stack_a, stack_b, 0);
-	pa(stack_a, stack_b, 0);
-	pa(stack_a, stack_b, 0);
-	pa(stack_a, stack_b, 0);
 }
 
 void	sort_b(t_list **stack_a, t_list **stack_b)
@@ -145,16 +143,14 @@ void	bigsort(t_list **stack_a, t_list **stack_b)
 
 	size = ft_lstsize(*stack_a);
 	init = size;
-	initial_size = size / 15;
+	initial_size = size /5;
 	quart = initial_size;
 	while(*stack_a)
 	{
 		if (quart > init)
 		{
 			while(*stack_a)
-			{
 				pb(stack_a, stack_b, 0);
-			}
 			break;
 		}
 		quarter = create_first_quarter(stack_a, quart, initial_size);
