@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:18:08 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/24 14:19:06 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/26 06:21:13 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -23,7 +23,7 @@ void	sort_three_b(t_list **head)
 	first_element = *(int *)(*(head))->content;
 	second_element = *(int *)(*(head))->next->content;
 	third_element = *(int *)(*(head))->next->next->content;
-	if ((first_element <  second_element) && (first_element < third_element))
+	if ((first_element < second_element) && (first_element < third_element))
 	{
 		rb(head, 0);
 		if (!is_sorted_reverse(*head))
@@ -38,6 +38,7 @@ void	sort_three_b(t_list **head)
 	else
 		sb(head, 0);
 }
+
 void	sort_three(t_list **head)
 {
 	int	first_element;
@@ -65,30 +66,15 @@ void	sort_three(t_list **head)
 
 void	sort(t_list **stack_a, t_list **stack_b)
 {
-	int	index;
-	int	proximity;
-	int	size;
+	t_list	*index;
+	int		size;
 
 	while (ft_lstsize(*stack_a) > 3)
 	{
 		index_list(*stack_a);
 		size = ft_lstsize(*stack_a);
 		index = get_lowest_number(*stack_a);
-		proximity = size / 2;
-		if (index == 1)
-		{
-			pb(stack_a, stack_b, 0);
-			index_list(*stack_a);
-			index = get_lowest_number(*stack_a);
-			size = ft_lstsize(*stack_a);
-			proximity = size / 2;
-		}
-		if (size == 3)
-			break ;
-		if (proximity >= index)
-			ra(stack_a, 0);
-		else
-			rra(stack_a, 0);
+		approximity(index, stack_a, stack_b);
 	}
 	if (!is_sorted(*stack_a))
 		sort_three(stack_a);
@@ -98,89 +84,45 @@ void	sort(t_list **stack_a, t_list **stack_b)
 
 void	sort_b(t_list **stack_a, t_list **stack_b)
 {
-	int	index;
-	int	proximity;
-	int	size;
+	t_list	*index;
+	int		size;
 
-	size = ft_lstsize(*stack_b);
-	while (size > 3)
+	while (ft_lstsize(*stack_b) > 3)
 	{
 		index_list(*stack_b);
 		size = ft_lstsize(*stack_b);
 		index = get_max_number(*stack_b);
-		proximity = size / 2;
-		if (index == 1)
-		{
-			pa(stack_a, stack_b, 0);
-			size = ft_lstsize(*stack_b);
-			index_list(*stack_b);
-			index = get_max_number(*stack_b);
-			proximity = size / 2;
-		}
-		if (size < 4)
-			break;
-		if (proximity >= index)
-			rb(stack_b, 0);
-		else
-			rrb(stack_b, 0);
+		approximity_b(index, stack_a, stack_b);
 	}
 	if (!is_sorted_reverse(*stack_b))
 		sort_three_b(stack_b);
-	while(ft_lstsize(*stack_b) > 0)
+	while (ft_lstsize(*stack_b) > 0)
 		pa(stack_a, stack_b, 0);
 }
 
 void	bigsort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*quarter;
-	int		closest;
-	t_list	*index;
-	int		size;
+	t_list	*closest;
 	int		quart;
-	int		proximity;
 	int		initial_size;
-	int		init;
 
-	size = ft_lstsize(*stack_a);
-	init = size;
-	initial_size = size /5;
+	initial_size = ft_lstsize(*stack_a) / get_divisor(ft_lstsize(*stack_a));
 	quart = initial_size;
-	while(*stack_a)
+	while (*stack_a)
 	{
-		if (quart > init)
+		if (ft_lstsize(*stack_a) < initial_size)
 		{
-			while(*stack_a)
+			while (*stack_a)
 				pb(stack_a, stack_b, 0);
-			break;
+			break ;
 		}
 		quarter = create_first_quarter(stack_a, quart, initial_size);
 		while (quarter)
 		{
 			index_list(*stack_a);
 			closest = get_closest_to_index(&quarter, stack_a);
-			index = get_list_index_one(*stack_a, closest);
-			while (index->index != 1)
-			{
-				size = ft_lstsize(*stack_a);
-				proximity = size / 2;
-				if (proximity >= index->index)
-					ra(stack_a, 0);
-				else
-					rra(stack_a, 0);
-				index_list(*stack_a);
-			}
-			if (index->index == 1)
-			{
-				pb(stack_a, stack_b, 0);
-				size = ft_lstsize(*stack_a);
-				if (size == 1)
-				{
-					pb(stack_a, stack_b, 0);
-					break;
-				}
-				index_list(*stack_a);
-				proximity = size / 2;
-			}
+			approximity(closest, stack_a, stack_b);
 		}
 		quart += initial_size;
 	}						

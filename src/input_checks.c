@@ -6,22 +6,25 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:33:34 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/24 14:22:00 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/25 15:15:46 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
+/*
+ * Checks inside single string if ist a valid number or not;
+ */
 int	has_non_numeric_vals(char *argv)
 {
 	int	i;
 
 	i = -1;
-	if (argv[0] == '-' && argv[1] == 0)
+	if ((argv[0] == '-' || argv[0] == '+') && argv[1] == 0)
 		return (0);
-	if (argv[0] == '-')
+	if (argv[0] == '-' || argv[0] == '+')
 		i++;
 	while (argv[++i] != 0)
-		if (!((ft_isdigit(argv[i]) || argv[i] == 32) && argv[i] != '-'))
+		if (!(ft_isdigit(argv[i]) || argv[i] == 32))
 			return (0);
 	return (1);
 }

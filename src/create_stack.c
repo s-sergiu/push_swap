@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:46:39 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/24 04:25:42 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/26 04:20:17 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -53,8 +53,6 @@ t_list	*create_stack(char **argv)
 
 	head = NULL;
 	i = 0;
-	if (argv[i][0] == 0)
-		return (NULL);
 	while (argv[++i] != 0)
 	{
 		split = ft_split(argv[i], ' ');
@@ -75,17 +73,33 @@ t_list	*create_stack(char **argv)
 	return (head);
 }
 
-t_list *create_first_quarter(t_list **head, int quart, int initial_size)
+t_list	*create_first_quarter(t_list **head, int quart, int initial_size)
 {
-	int	i;
-	t_list *quarter;
-	t_list *cursor;
+	int		i;
+	t_list	*quarter;
+	t_list	*cursor;
 
 	quarter = NULL;
 	i = quart - (initial_size - 1);
-	while(i <= quart) 
+	while (i <= quart)
 	{
-		cursor = get_list_index(*head, i++);
+		cursor = get_node_by_sorted_index(*head, i++);
+		ft_lstadd_back(&quarter, ft_lstnew(cursor->content));
+	}
+	return (quarter);
+}
+
+t_list	*create_first_quarter_rev(t_list **head, int quart, int initial_size)
+{
+	int		i;
+	t_list	*quarter;
+	t_list	*cursor;
+
+	quarter = NULL;
+	i = quart - (initial_size - 1);
+	while (i <= quart)
+	{
+		cursor = get_node_by_rev_index(*head, i++);
 		ft_lstadd_back(&quarter, ft_lstnew(cursor->content));
 	}
 	return (quarter);

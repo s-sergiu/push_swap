@@ -12,7 +12,10 @@ OBJ= obj/main.o \
 	 obj/input_checks.o \
 	 obj/create_stack.o \
 	 obj/sorting_algorithm.o \
-	 obj/sorting_utils.o
+	 obj/sorting_utils.o \
+	 obj/indexing_utils.o \
+	 obj/list_utils.o \
+	 obj/loops.o
 
 BONUS_OBJ= obj/bonus/checker.o \
 		   obj/bonus/push.o \

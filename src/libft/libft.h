@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 17:05:23 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/21 06:57:36 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/24 14:33:16 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 	void			*content;
 	int				index;
 	int				sorted_index;
+	int				rev_sorted_index;
 	struct s_list	*next;
 }					t_list;
 
