@@ -15,6 +15,8 @@ OBJ= obj/main.o \
 	 obj/sorting_utils.o \
 	 obj/indexing_utils.o \
 	 obj/list_utils.o \
+	 obj/free_utils.o \
+	 obj/error_handling.o \
 	 obj/loops.o
 
 BONUS_OBJ= obj/bonus/checker.o \

@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 05:43:55 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 13:06:20 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 15:07:33 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -87,4 +87,28 @@ int	get_divisor(int size)
 	while (i++ < category)
 		divisor++;
 	return (divisor);
+}
+
+int	create_stack_loop(t_list **head, char **split)
+{
+	int		j;
+	long	*content;
+
+	j = -1;
+	while (split[++j] != 0)
+	{
+		if (!has_non_numeric_vals(split[j]))
+			return (0);
+		content = (long *)malloc(sizeof(long) * 1);
+		if (!content)
+			return (0);
+		*content = ft_atoi(split[j]);
+		if (*content < -2147483648 || *content > 2147483647)
+		{
+			free(content);
+			return (0);
+		}
+		ft_lstadd_back(head, ft_lstnew(content));
+	}
+	return (1);
 }

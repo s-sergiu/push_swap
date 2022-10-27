@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:31 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 12:55:01 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 15:15:17 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void		rrb(t_list **head, int flag);
 void		rrr(t_list **stack_a, t_list **stack_b, int flag);
 void		sort_three(t_list **head);
 void		index_list(t_list *head);
+void		init_indexes(t_list **head);
 void		sort(t_list **stack_a, t_list **stack_b);
 void		bigsort(t_list **stack_a, t_list **stack_b);
 void		sorted_index_list(t_list *head);
@@ -37,6 +38,8 @@ void		reverse_sorted_index_list(t_list *head);
 void		remove_from_list(void *number, t_list **head);
 void		approximity_b(t_list *closest, t_list **stack_a, t_list **stack_b);
 void		approximity(t_list *closest, t_list **stack_a, t_list **stack_b);
+void		free_split(char **split);
+void		clear_and_free_split(t_list **head, char **split);
 void		closest_to_index_loop(t_list *cursor, t_list **temp,
 				t_list **head, int *min);
 t_list		*find_highest_val(t_list *head);
@@ -59,5 +62,6 @@ int			is_sorted(t_list *head);
 int			is_sorted_reverse(t_list *head);
 int			stack_is_invalid(t_list *head);
 int			get_divisor(int size);
+int			create_stack_loop(t_list **head, char **split);
 
 #endif

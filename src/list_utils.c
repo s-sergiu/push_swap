@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 05:32:58 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 10:49:22 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 15:13:58 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -67,28 +67,16 @@ t_list	*get_node_by_sorted_index(t_list *head, int number)
 	return (NULL);
 }
 
-void	remove_from_list(void *number, t_list **head)
+void	init_indexes(t_list **head)
 {
 	t_list	*cursor;
-	t_list	*temp;
 
 	cursor = *head;
-	if (cursor->content == number)
-	{
-		*head = (*head)->next;
-		free(cursor);
-		cursor = NULL;
-	}
 	while (cursor)
 	{
-		if (cursor->next->content == number)
-		{
-			temp = cursor->next;
-			cursor->next = cursor->next->next;
-			free(temp);
-			temp = NULL;
-			break ;
-		}
+		cursor->index = -1;
+		cursor->sorted_index = -1;
+		cursor->rev_sorted_index = -1;
 		cursor = cursor->next;
 	}
 }

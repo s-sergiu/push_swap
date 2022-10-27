@@ -6,24 +6,11 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:32:30 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 12:55:42 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 15:14:00 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
-void	init_indexes(t_list **head)
-{
-	t_list	*cursor;
-
-	cursor = *head;
-	while (cursor)
-	{
-		cursor->index = -1;
-		cursor->sorted_index = -1;
-		cursor->rev_sorted_index = -1;
-		cursor = cursor->next;
-	}
-}
 
 void	sort_by_size(t_list **stack_a, t_list **stack_b, int size)
 {
