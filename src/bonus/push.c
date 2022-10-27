@@ -6,9 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 23:11:03 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 23:05:31 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:54:11 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../include/checker.h"
 
 void	pa(t_list **stack_a, t_list **stack_b, int flag)

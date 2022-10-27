@@ -6,9 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 23:11:03 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 22:09:42 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:52:48 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	pa(t_list **stack_a, t_list **stack_b, int flag)

@@ -6,9 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 23:10:48 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 23:05:11 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:54:25 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../include/checker.h"
 
 void	sa(t_list **head, int flag)

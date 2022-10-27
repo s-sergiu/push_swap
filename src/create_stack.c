@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:46:39 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 15:10:13 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 16:36:52 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_list	*create_stack(char **argv)
 	return (head);
 }
 
-t_list	*create_first_quarter(t_list **head, int quart, int initial_size)
+t_list	*create_chunk(t_list **head, int quart, int initial_size)
 {
 	int		i;
 	t_list	*quarter;
@@ -49,22 +49,6 @@ t_list	*create_first_quarter(t_list **head, int quart, int initial_size)
 	while (i <= quart)
 	{
 		cursor = get_node_by_sorted_index(*head, i++);
-		ft_lstadd_back(&quarter, ft_lstnew(cursor->content));
-	}
-	return (quarter);
-}
-
-t_list	*create_first_quarter_rev(t_list **head, int quart, int initial_size)
-{
-	int		i;
-	t_list	*quarter;
-	t_list	*cursor;
-
-	quarter = NULL;
-	i = quart - (initial_size - 1);
-	while (i <= quart)
-	{
-		cursor = get_node_by_rev_index(*head, i++);
 		ft_lstadd_back(&quarter, ft_lstnew(cursor->content));
 	}
 	return (quarter);

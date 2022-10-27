@@ -6,14 +6,12 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:18:08 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 13:07:51 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:48:37 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
-/*
- * Hardcoded sorting list of size(3);
- */
 void	sort_three_b(t_list **head)
 {
 	int	first_element;
@@ -113,7 +111,7 @@ void	bigsort(t_list **stack_a, t_list **stack_b)
 				pb(stack_a, stack_b, 0);
 			break ;
 		}
-		quarter = create_first_quarter(stack_a, quart, initial_size);
+		quarter = create_chunk(stack_a, quart, initial_size);
 		while (quarter)
 		{
 			closest = get_closest_to_index(&quarter, stack_a);

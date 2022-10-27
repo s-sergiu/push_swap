@@ -6,9 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 03:02:57 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 13:07:56 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:51:56 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 t_list	*get_max_number(t_list *head)

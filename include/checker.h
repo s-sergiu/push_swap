@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:31 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 22:44:13 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 16:33:23 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ void		rr(t_list **stack_a, t_list **stack_b, int flag);
 void		rra(t_list **head, int flag);
 void		rrb(t_list **head, int flag);
 void		rrr(t_list **stack_a, t_list **stack_b, int flag);
+void		free_split(char **split);
+void		clear_and_free_split(t_list **head, char **split);
+void		remove_from_list(void *number, t_list **head);
+void		init_indexes(t_list **head);
 int			has_non_numeric_vals(char *argv);
 char		*get_next_line(int fd);
 t_list		*create_stack(char **argv);

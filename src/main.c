@@ -6,11 +6,25 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:32:30 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 15:14:00 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:52:42 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
+int	get_divisor(int size)
+{
+	int	i;
+	int	category;
+	int	divisor;
+
+	i = 1;
+	divisor = 5;
+	category = size / (divisor * 10);
+	while (i++ < category)
+		divisor++;
+	return (divisor);
+}
 
 void	sort_by_size(t_list **stack_a, t_list **stack_b, int size)
 {

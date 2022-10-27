@@ -6,9 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 23:02:46 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/21 06:07:19 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:53:36 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../include/checker.h"
 
 void	instruction_error(void)
@@ -69,6 +70,7 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 	stack_a = create_stack(argv);
+	init_indexes(&stack_a);
 	if (stack_is_invalid(stack_a))
 	{
 		ft_lstclear(&stack_a, free);

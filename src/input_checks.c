@@ -6,9 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:33:34 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 15:11:48 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:52:17 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 /*

@@ -6,9 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 05:43:55 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 15:07:33 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:52:37 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	closest_to_index_loop(t_list *cursor, t_list **temp,
@@ -73,20 +74,6 @@ void	approximity(t_list *closest, t_list **stack_a, t_list **stack_b)
 		if (closest->index == 1)
 			pb(stack_a, stack_b, 0);
 	}
-}
-
-int	get_divisor(int size)
-{
-	int	i;
-	int	category;
-	int	divisor;
-
-	i = 1;
-	divisor = 5;
-	category = size / (divisor * 10);
-	while (i++ < category)
-		divisor++;
-	return (divisor);
 }
 
 int	create_stack_loop(t_list **head, char **split)

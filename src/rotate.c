@@ -6,9 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 23:11:42 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/19 22:07:44 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:53:08 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
 void	ra(t_list **head, int flag)

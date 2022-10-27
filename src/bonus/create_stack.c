@@ -6,19 +6,24 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:46:39 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 13:54:24 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:53:47 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../include/checker.h"
 
-void	free_split(char **split)
+void	init_indexes(t_list **head)
 {
-	int	i;
+	t_list	*cursor;
 
-	i = -1;
-	while (split[++i] != 0)
-		free(split[i]);
-	free(split);
+	cursor = *head;
+	while (cursor)
+	{
+		cursor->index = -1;
+		cursor->sorted_index = -1;
+		cursor->rev_sorted_index = -1;
+		cursor = cursor->next;
+	}
 }
 
 int	create_stack_loop(t_list **head, char **split)
@@ -58,14 +63,12 @@ t_list	*create_stack(char **argv)
 		split = ft_split(argv[i], ' ');
 		if (split[0] == 0)
 		{
-			free_split(split);
+			clear_and_free_split(&head, split);
 			return (NULL);
 		}
 		if (!create_stack_loop(&head, split))
 		{
-			if (head)
-				ft_lstclear(&head, free);
-			free_split(split);
+			clear_and_free_split(&head, split);
 			return (NULL);
 		}
 		free_split(split);

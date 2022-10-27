@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:31 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/27 15:15:17 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 15:47:14 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,7 @@ t_list		*get_node_by_index(t_list *head, int number);
 t_list		*get_node_by_rev_index(t_list *head, int number);
 t_list		*get_node_by_content(t_list *head, void *number);
 t_list		*find_lowest_val(t_list *head);
-t_list		*create_first_quarter(t_list **head, int quart, int initial_size);
-t_list		*create_first_quarter_rev(t_list **head,
-				int quart, int initial_size);
+t_list		*create_chunk(t_list **head, int quart, int initial_size);
 t_list		*get_closest_to_index(t_list **quarter, t_list **head);
 t_list		*get_lowest_number(t_list *head);
 t_list		*get_max_number(t_list *head);

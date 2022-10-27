@@ -6,9 +6,10 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:33:34 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/21 11:43:56 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:54:01 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../../include/checker.h"
 
 int	has_non_numeric_vals(char *argv)
