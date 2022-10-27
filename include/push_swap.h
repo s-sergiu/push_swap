@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:31 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/26 06:20:40 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 12:55:01 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		remove_from_list(void *number, t_list **head);
 void		approximity_b(t_list *closest, t_list **stack_a, t_list **stack_b);
 void		approximity(t_list *closest, t_list **stack_a, t_list **stack_b);
 void		closest_to_index_loop(t_list *cursor, t_list **temp,
-			t_list **head, int *min);
+				t_list **head, int *min);
 t_list		*find_highest_val(t_list *head);
 t_list		*find_lowest_val(t_list *head);
 t_list		*create_stack(char **argv);
@@ -48,7 +48,8 @@ t_list		*get_node_by_rev_index(t_list *head, int number);
 t_list		*get_node_by_content(t_list *head, void *number);
 t_list		*find_lowest_val(t_list *head);
 t_list		*create_first_quarter(t_list **head, int quart, int initial_size);
-t_list		*create_first_quarter_rev(t_list **head, int quart, int initial_size);
+t_list		*create_first_quarter_rev(t_list **head,
+				int quart, int initial_size);
 t_list		*get_closest_to_index(t_list **quarter, t_list **head);
 t_list		*get_lowest_number(t_list *head);
 t_list		*get_max_number(t_list *head);

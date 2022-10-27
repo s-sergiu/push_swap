@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 05:32:58 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/26 05:34:43 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 10:49:22 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -76,6 +76,7 @@ void	remove_from_list(void *number, t_list **head)
 	if (cursor->content == number)
 	{
 		*head = (*head)->next;
+		free(cursor);
 		cursor = NULL;
 	}
 	while (cursor)
@@ -84,7 +85,7 @@ void	remove_from_list(void *number, t_list **head)
 		{
 			temp = cursor->next;
 			cursor->next = cursor->next->next;
-			temp->next = NULL;
+			free(temp);
 			temp = NULL;
 			break ;
 		}

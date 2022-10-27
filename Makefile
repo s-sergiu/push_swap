@@ -39,30 +39,41 @@ all: $(NAME)
 $(BONUS): $(BONUS_FILE)
 
 $(BONUS_FILE): $(LIBFT) $(BONUS_OBJ) $(BONUS_H) $(GNL)
-	$(CC) $(FLAGS) $(BONUS_OBJ) $(LIBFT) $(GNL) -o checker
+	@$(CC) $(FLAGS) $(BONUS_OBJ) $(LIBFT) $(GNL) -o checker
 
-$(NAME): $(LIBFT) $(OBJ) $(NAME_H)
-	$(CC) $(FLAGS) $(OBJ) $(LIBFT) -o $@
+$(NAME): $(LIBFT) $(OBJ) $(NAME_H) 
+	@$(CC) $(FLAGS) $(OBJ) $(LIBFT) -o $@
 
-obj/%.o: src/%.c
-	$(CC) $(FLAGS) -c -o $@ $^
+obj/%.o: src/%.c 
+	@if  [ ! -d obj ]; then \
+		mkdir obj/; \
+	fi
+	@$(CC) $(FLAGS) -c -o $@ $^
 
 $(GNL): $(GNL_DIR)/*.c
-	make -C $(GNL_DIR)
-	cp $(GNL_DIR)/gnl.a $(GNL)
-	make fclean -C $(GNL_DIR)
+	@if  [ ! -d obj/gnl ]; then \
+		mkdir -p obj/gnl; \
+	fi
+	@make -C $(GNL_DIR)
+	@cp $(GNL_DIR)/gnl.a $(GNL)
+	@make fclean -C $(GNL_DIR)
 
-$(LIBFT): $(LIBFT_DIR)/*.c
-	make -C $(LIBFT_DIR)
-	cp $(LIBFT_DIR)/libft.a $(LIBFT)
-	make fclean -C $(LIBFT_DIR)
+$(LIBFT): $(LIBFT_DIR)/*.c 
+	@if  [ ! -d obj/libft ]; then \
+		mkdir -p obj/libft; \
+	fi
+	@make -C $(LIBFT_DIR)
+	@cp $(LIBFT_DIR)/libft.a $(LIBFT)
+	@make fclean -C $(LIBFT_DIR)
 
 clean:
-	$(RM) $(OBJ) $(BONUS_OBJ) $(LIBFT) $(GNL)
+	@$(RM) $(OBJ) $(BONUS_OBJ) $(LIBFT) $(GNL)
 
 fclean: clean
-	$(RM) $(NAME) $(BONUS_FILE)
+	@$(RM) $(NAME) $(BONUS_FILE)
 
 re: clean all
 
 .PHONY: bonus all clean fclean re
+
+

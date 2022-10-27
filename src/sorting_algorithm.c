@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 19:18:08 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/26 06:21:13 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 13:07:51 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -67,12 +67,10 @@ void	sort_three(t_list **head)
 void	sort(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*index;
-	int		size;
 
 	while (ft_lstsize(*stack_a) > 3)
 	{
 		index_list(*stack_a);
-		size = ft_lstsize(*stack_a);
 		index = get_lowest_number(*stack_a);
 		approximity(index, stack_a, stack_b);
 	}
@@ -85,12 +83,10 @@ void	sort(t_list **stack_a, t_list **stack_b)
 void	sort_b(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*index;
-	int		size;
 
 	while (ft_lstsize(*stack_b) > 3)
 	{
 		index_list(*stack_b);
-		size = ft_lstsize(*stack_b);
 		index = get_max_number(*stack_b);
 		approximity_b(index, stack_a, stack_b);
 	}
@@ -120,9 +116,9 @@ void	bigsort(t_list **stack_a, t_list **stack_b)
 		quarter = create_first_quarter(stack_a, quart, initial_size);
 		while (quarter)
 		{
-			index_list(*stack_a);
 			closest = get_closest_to_index(&quarter, stack_a);
 			approximity(closest, stack_a, stack_b);
+			remove_from_list(closest->content, &quarter);
 		}
 		quart += initial_size;
 	}						

@@ -6,7 +6,7 @@
 /*   By: ssergiu <ssergiu@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 03:02:57 by ssergiu           #+#    #+#             */
-/*   Updated: 2022/10/26 05:44:28 by ssergiu          ###   ########.fr       */
+/*   Updated: 2022/10/27 13:07:56 by ssergiu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -93,6 +93,7 @@ t_list	*get_closest_to_index(t_list **quarter, t_list **head)
 	t_list	*temp;
 	int		min;
 
+	index_list(*head);
 	cursor = *quarter;
 	temp = *quarter;
 	min = 0;
@@ -101,6 +102,5 @@ t_list	*get_closest_to_index(t_list **quarter, t_list **head)
 		closest_to_index_loop(cursor, &temp, head, &min);
 		cursor = cursor->next;
 	}
-	remove_from_list(temp->content, quarter);
 	return (temp);
 }
